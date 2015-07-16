@@ -9,7 +9,6 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('ended', function() {
-      console.log('has ended');
       this.remove(this.at(0));
       if(this.length >= 1){
         this.playFirst();
