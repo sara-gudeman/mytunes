@@ -21,7 +21,12 @@ var SongQueue = Songs.extend({
     }, this);
 
     this.on('removed', function(song){
-      this.dequeue(song)
+      if (song.title === this.at(0).title) {
+        this.dequeue(song);
+        this.playFirst();
+      } else {
+        this.dequeue(song);
+      }
     }, this);
   },
 
