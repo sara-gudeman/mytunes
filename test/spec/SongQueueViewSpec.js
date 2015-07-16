@@ -35,4 +35,14 @@ describe('SongQueueView', function() {
     expect(view.render).to.have.been.called;
   });
 
+  it('removes song from queue when clicked', function() {
+    sinon.spy(SongModel.prototype, 'removed');
+    view = new SongQueueView({collection: fakeSongs});
+    view.$el.children().second().click();
+    expect(SongModel.removed).to.have.been.called;
+  });
+
 });
+
+// add a click event to songs in our songQueueView
+// when a click event is registered, remove song
